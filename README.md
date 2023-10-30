@@ -1,5 +1,5 @@
 # Data Projects
-Repository for some of my data projects, all coded in R
+Repository for some of my data projects, all coded in R. The following file describes my analysis of the same, while the actual code can be found in their respective folders.
 
 ## (1) 'Threads' Sentiment Analysis
 
