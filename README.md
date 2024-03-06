@@ -122,7 +122,7 @@ Some 'stop words' unique to this analysis include:  "twitter","instagram","faceb
 
 ![Negative_Reviews_Word_Cloud-1.png](./images/Negative_Reviews_Word_Cloud-1.png)
 
-Interestingly, we see "good" mentioned in the negative word cloud as well. This also looks like a problem of context as it would've been part of a phrase (ex - "not good"). This situation will also have to be handled in our ML model.
+Interestingly, we see words like "instagram", "twitter", etc that are common to both positive and negative reviews. These words are likely used to draw positive and negative comparisons respectively. 
 
 ### Predictive Models and Beyond
 
