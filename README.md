@@ -109,26 +109,16 @@ To counteract this, we can try to get a clearer picture of how users feel about 
 
 ### Key Word Analysis
 
-Keyword analysis is a great way to expand our analysis beyond sentiment scores and numeric ratings. I have pulled up the most commonly used words appearing in all of the reviews. of course, prior to this, I have tried my best to remove any 'stop words' (common words such as "and", "the", etc., that do not carry significant meaning) through both in-built algorithms in R and a list I created myself manually after viewing the most commonly used words.
-
-The word cloud format is a great way to view the results, though I do find it overwhelming sometimes, so a table of the top words could be a great supplement.
-
-
-![Overall_word_cloud-1.png](./images/Overall_word_cloud-1.png)
-![Overall_Top_Words.jpg](./images/Overall_Top_Words.jpg)
-
-
+Keyword analysis allows us to expand our analysis beyond sentiment scores and numeric ratings. I have pulled up the most commonly used words appearing in all of the reviews - both positive and negative. of course, before this, I have tried my best to remove any 'stop words' (common words such as "and", "the", etc., that do not carry significant meaning) through both in-built algorithms in R and a list I created myself manually after viewing the most commonly used words. Some 'stop words' unique to this analysis include:  "twitter","instagram","facebook","zuckerberg". I have chosen to exclude these as they are widely used and common to both positive and negative reviews of the app, so without more context they could impact the results of this analysis (this problem of context will also be tackeled during the building of my ML models)
 
 ##### Key Word Analysis for Positive Reviews (Reviews of rating 4 and above)
 
 
-![Positive_Ratings_Word_Cloud-1.png](./images/Positive_Ratings_Word_Cloud-1.png)
-![Positive_ratings_top_words.jpg](./images/Positive_ratings_top_words.jpg)
+![negative_WC_V2.png](./images/negative_WC_V2.png)
 
 ##### Key Word Analysis for Negative Reviews (Reviews of rating 2 and below)
 
-![Negative_Reviews_Word_Cloud-1.png](./images/Negative_Reviews_Word_Cloud-1.png)
-![Negative_ratings_top_words.jpg](./images/Negative_ratings_top_words.jpg)
+![poistive_WC_V2.png](./images/poistive_WC_V2.png)
 
 
 
