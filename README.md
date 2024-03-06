@@ -126,15 +126,75 @@ Interestingly, we see words like "instagram", "twitter", etc that are common to 
 
 ### Predictive Models and Beyond
 
-We can use this data to create machine learning models for sentiment classification that can potentially be used to predict values on other such datasets of app reviews.
+We can use this data to create machine learning models for sentiment classification that can potentially be used to predict values on other such datasets of app reviews. 
 
-After performing text vectorization, I can split my dataset into testing and training groups and run an ML algorithm. I am trying the Naive Bayes algorithm first.
+I have also taken the precaution of removing the words:  "twitter","instagram","facebook","zuckerberg". I have chosen to exclude these as they are widely used and common to both positive and negative reviews of the app, and could thus impact the predictive power of the model
 
-I have also taken the steps of removing the words:  "twitter","instagram","facebook","zuckerberg". I have chosen to exclude these as they are widely used and common to both positive and negative reviews of the app, and could thus impact the predictive power of the model
+I followed several steps in the creation of such a model:
+
+(i) Similar to the above word clouds, classifying different levels of 'positive, neutral, and negative.
+  
+  data$rating >= 4 ~ "positive",
+  data$rating == 3 ~ "neutral",
+  data$rating <= 2 ~ "negative"
+
+(ii) "Preprocessing" the data for ML analysis: This involves converting text to lowercase, eliminating punctuation, discarding stop words, removing numbers and whitespace. This is all so my model can "read" the data more effectively. 
+
+(iii) Creation of a 'Document Term Matrix (DTM) & calculation of Term Frequency-Inverse Document Frequency (TF-IDF): The DTM is a matrix representation of the dataset where each row corresponds to a document (in this case, a review) and each column represents a unique term across all documents. The values in the matrix indicate the frequency of each term in each document.
+
+TF-IDF is a statistical measure used to evaluate how important a word is. It increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus, which helps to adjust for the fact that some words appear more frequently in general.
+
+(iv) Pre-paring the above data for ML modeling and splitting the data into 'training' and 'testing' sets: 80% of the total dataset is used to "train" the model while its effectivness in evaluating sentiment is tested on the other 20%.
+
+#### Attempt 1:
+Evaluating the model's performance using the test set, I can see it's performance is just above average.Accuracy (0.6074) indicates that 60.74% of all predictions were correct. The low p-value (1.673e-09) indicates that the model is much better than the 'no information rate' (the accuracy achievable by always predicting the most frequent class). However, there is definite room for improvement. A closer look reveals that the model struggles most with 'negative' and 'neutral' classes (due to their relatively low prevalence in the dataset) so I can begin there.
+
+![1st_model.png](./images/1st_model.png)
+
+
+#### Attempt 2: Adjusting for class sizes via oversampling
+
+Here I will try to adjust for the lower number of negative and neutral reviews:
+
+These are the sizes of each class and the overall average: 
+
+size_negative <- 11522
+size_neutral <- 2585
+size_positive <- 18803
+average_size <- 10970
+
+I will ignore the negative class for now as neutral is drastically more under-represented by targeting halfway between its current size and the average:
+
+target_size_neutral <- round((size_neutral + average_size) / 2)
+
+The neutral class will now be oversampled:
+data_neutral_oversampled <- sample_n(data_neutral, target_size_neutral, replace = TRUE)
+
+Unfortunately, this model performs even worse at an overall level than the previous one with an overall decrease in accuracy from from 60.74% to 56.49%. Moreover, the performance on negative and neutral classes, which we were hoping to improve on, actually decreased slightly. 
+
+![2nd_model.png](./images/2nd_model.png)
 
 
 
-Evaluating the model's performance using the test set, I can see it's performance is just above average.
+Another better way of handling class imbalance could be to just simply to two classes, positive and negative.
+
+
+#### Attempt 3: Using only two classes as opposed to three:
+
+The classes have been redefined to: 
+  data$rating >= 4 ~ "positive",
+  data$rating <= 3 ~ "negative"
+
+![3rd_model.png](./images/3rd_model.png)
+
+We immediatley see better results. This model, with an accuracy of 66.74% shows a higher overall accuracy than both previous ones (60.74% and 56.49%, respectively).
+Specificity and precision are also notably high in this model, especially for identifying positive sentiments and predicting negative sentiments accurately.
+
+However, the sensitivity for negative sentiments is lower. This could demand a more sophiticated treating of negative class in the data.
+
+One way to achieve this could be via bi-grams or tri-grams. In these methods, 
+  
+
 
 
 
