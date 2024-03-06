@@ -109,30 +109,39 @@ To counteract this, we can try to get a clearer picture of how users feel about 
 
 ### Key Word Analysis
 
-Keyword analysis allows us to expand our analysis beyond sentiment scores and numeric ratings. I have pulled up the most commonly used words appearing in all of the reviews - both positive and negative. of course, before this, I have tried my best to remove any 'stop words' (common words such as "and", "the", etc., that do not carry significant meaning) through both in-built algorithms in R and a list I created myself manually after viewing the most commonly used words. Some 'stop words' unique to this analysis include:  "twitter","instagram","facebook","zuckerberg". I have chosen to exclude these as they are widely used and common to both positive and negative reviews of the app, so without more context they could impact the results of this analysis (this problem of context will also be tackeled during the building of my ML models)
+Keyword analysis allows us to expand our analysis beyond sentiment scores and numeric ratings. I have pulled up the most commonly used words appearing in all of the reviews - both positive and negative. of course, before this, I have tried my best to remove any 'stop words' (common words such as "and", "the", etc., that do not carry significant meaning) through both in-built algorithms in R and a list I created myself manually after viewing the most commonly used words. 
+
+Some 'stop words' unique to this analysis include:  "twitter","instagram","facebook","zuckerberg". I have chosen to exclude these as they are widely used and common to both positive and negative reviews of the app, so without more context they could impact the results of this analysis (this problem of context will also be tackeled during the building of my ML models)
 
 ##### Key Word Analysis for Positive Reviews (Reviews of rating 4 and above)
 
+![Negative_Reviews_Word_Cloud-1.png](./images/Negative_Reviews_Word_Cloud-1.png)
 
-![negative_WC_V2.png](./images/negative_WC_V2.png)
 
 ##### Key Word Analysis for Negative Reviews (Reviews of rating 2 and below)
 
-![poistive_WC_V2.png](./images/poistive_WC_V2.png)
+![Negative_Reviews_Word_Cloud-1.png](./images/Negative_Reviews_Word_Cloud-1.png)
 
-
+Interestingly, we see "good" mentioned in the negative word cloud as well. This also looks like a problem of context as it would've been part of a phrase (ex - "not good"). This situation will also have to be handled in our ML model.
 
 ### Predictive Models and Beyond
 
-We can use this data to create machine learning models for sentiment classification that can potentially be used to predict values on other such datasets of app reviews!
+We can use this data to create machine learning models for sentiment classification that can potentially be used to predict values on other such datasets of app reviews.
 
 After performing text vectorization, I can split my dataset into testing and training groups and run an ML algorithm. I am trying the Naive Bayes algorithm first.
 
-![First_ML_Model.jpg](./images/First_ML_Model.jpg)
+I have also taken the steps of removing the words:  "twitter","instagram","facebook","zuckerberg". I have chosen to exclude these as they are widely used and common to both positive and negative reviews of the app, and could thus impact the predictive power of the model
 
 
-Evaluating the model's performance using the test set, I can see it performs alright. It has an accuracy of 62.42% which is better than the no information rate (baseline accuracy that could be achieved by always predicting the most frequent class) of 57.13% but this is not too much of an improvement. The p-value and kappa statistic also indicate the model does perform better than chance for certain.
 
-Class-wise (positive, neutral, and negative reviews) reveals that that model actually performs quite well for positive reviews, but not so much for negative and neutral reviews.
+Evaluating the model's performance using the test set, I can see it's performance is just above average.
 
-There can be some ways for me to improve this including using other models and further manual intervention to eliminate 'stop words' that could be influencing the models' bad performance for neutral and negative reviews, which I will continue to explore - so see here in the future for more updates!
+
+
+
+
+
+
+
+
+
