@@ -206,6 +206,15 @@ handle_negation <- function(text) {
 }
 
 
+![4th_model.png](./images/4th_model.png)
+
+
+While only slightly better than our previous model (at 66.84%), this one gives us our best overall performance yet. Precision for negative sentiments shows a slight improvement, indicating a minor increase in the accuracy of negative sentiment predictions, but sensitivity for negative sentiments shows a slight decrease from 35.70% to 35.41%, indicating a marginal reduction in the model's ability to correctly identify negative sentiments.
+
+(conclusion)
+
+
+
 
 
 
