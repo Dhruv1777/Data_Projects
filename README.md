@@ -190,10 +190,20 @@ The classes have been redefined to:
 We immediatley see better results. This model, with an accuracy of 66.74% shows a higher overall accuracy than both previous ones (60.74% and 56.49%, respectively).
 Specificity and precision are also notably high in this model, especially for identifying positive sentiments and predicting negative sentiments accurately.
 
-However, the sensitivity for negative sentiments is lower. This could demand a more sophiticated treating of negative class in the data.
 
-One way to achieve this could be via bi-grams or tri-grams. In these methods, 
-  
+However, the sensitivity for negative sentiments is lower. This could demand a more sophisticated treatment of negative class in the data.
+
+One way to achieve this could be via n-grams. An n-gram is a collection of n-succesive words which can add further context and help in model performance. For instance, in previous examples, the word "good" would have been present in many negative reviews being paired with "not" (as in - "not good"). Using n-grams, I can account for this kind of "negation" context when it comes to negative reviews.
+
+
+I tried a variety of n-gram models including using unigrams, bigrams, and trigrams, just unigrams and bigrams, and finally only bigrams, but attempting to run any of these models took too much of a toll on my local system. (cloud?).
+
+As a result, I have tried to account for this negation problem in the least computationally intensive way I can think of - by handling terms like 'not' by treating it like a single word attached to the next word in the review:
+
+handle_negation <- function(text) {
+  text_modified <- gsub("not (\\w+)", "not_\\1", text)
+  return(text_modified)
+}
 
 
 
