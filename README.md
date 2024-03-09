@@ -1,28 +1,28 @@
 
 
-# (1) Spotify Top Songs Analysis
+# Spotify Top Songs Analysis
 
-I'm sure a lot of us have thought about what it would take to make a hit song. Song attributes can enable us to get an idea of just what makes our favorite tracks stand out. The analysis here attempts to predict the popularity of a song based on attributes such as 'danceability', 'energy', etc, as well as give us some insights based on genre and time of release.
+## Project Overview:
+
+This analysis explores what attributes contribute to a song's popularity on Spotify, focusing on specific characteristics like 'danceability', 'energy', and more. Additionally, the analysis delves into genre and release time impacts on popularity.
 
 
 
-### Broad Insights:
+## Broad Insights:
 
-One of the best ways to begin is to analyze the popularity of different genres (note - there are many, many more genres than just these 10, but these were selected for being the most popular to make the graph more readable: 
+### Popularity by Genre:
+
+Observation: Pop, hip-hop, dance, and indie-pop genres show varying levels of popularity, with pop leading but showing significant variance among songs within the genre as indicated by the smooth ess of its slope in the ridge plot.
 
 ![popularity_by_genre-1.png](./images/popularity_by_genre-1.png)
 
-As expected, we see pop songs have the highest popularity (it's in the name, right?), though the slope of the ridge is not very steep, indicating fair variance amongst different levels of popularity. Following a similar trend are hip-hop, dance, and indie-pop (though indie-pop has a fair distribution of songs with quite low popularity as well).
-
-
-On a separate topic, the year of release also does have an impact on its popularity. This would make sense as with Spotify still growing in terms of its number of users, more and more people are likely to stream newer songs that at the time of course have a surge in popularity.
+## Year of Release Impact
+Finding: A clear trend shows newer songs tend to be more popular, correlating with Spotify's growing user base. 
 
 ![Screenshot_2023-08-28_at_21-21-00.jpg](./images/Screenshot_2023-08-28_at_21-21-00.jpg)
 
-We can see a clear linear relationship between year and popularity. The slope of the line is _, indicating _.
 
-
-### Regression Models and Predictions
+## Regression Models and Predictions
 
 Moving on from these broader insights, I want to see if we can build a predictive model to estimate the popularity of a song based on the internal song attributes. Rather than genre or year, the predictors describe the nature of the song itself in 12 ways: 'danceability', 'energy', 'loudness', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms'.
 
