@@ -73,7 +73,7 @@ Applying that to our data in context, it looks like for any budding songwriter, 
 Though these do have a good degree of statistical significance, their ultimate impact is limited. Thus, while it is best to focus on having your song score high/low on the following metrics, there are a multitude of external factors to consider.
 
 
-### Dataset Attribution and Usage:
+## Dataset Attribution and Usage:
 
 This project analyzes the "Spotify_1Million_Tracks" dataset to explore attributes contributing to song popularity on Spotify. The dataset is licensed under the Open Data Commons Open Database License (ODbL) v1.0.
 
