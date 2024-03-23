@@ -2,6 +2,8 @@
 
 # Spotify Top Songs Analysis & Predictive Modelling
 
+All Code is available in the R file "R_Code_Spotify_Top_Songs" in this repository.
+
 ## Project Overview:
 
 This analysis explores what attributes contribute to a song's popularity on Spotify, focusing on specific characteristics like 'danceability', 'energy', and more. Additionally, the analysis delves into genre and release time impacts on popularity.
