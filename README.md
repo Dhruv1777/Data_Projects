@@ -28,7 +28,7 @@ Finding: A clear trend shows newer songs tend to be more popular, correlating wi
 
 ## Regression Models and Predictions
 
-### Initial Insights from VIF:
+## Initial Insights from VIF:
 
 Tested predictor variables for multicollinearity; 'energy' and 'loudness' show positive correlation, while both negatively correlated with 'acousticness'. However, the value is not so high as to take immediate action. I will instead keep an eye on these variables due to their potential overlapping influence on the model's accuracy.
 
@@ -39,7 +39,7 @@ Tested predictor variables for multicollinearity; 'energy' and 'loudness' show p
 ![Correlation_matrix_popularity_and_song_attributes-1.png](./images/Correlation_matrix_popularity_and_song_attributes-1.png)
 
 
-### Multivariate Model:
+## Multivariate Model:
 
 Results: While all predictor variables showed statistical significance, the Adjusted R-squared value was only 0.06752, indicating a limited explanation of popularity variance.
 
@@ -51,7 +51,7 @@ While the R squared value is low, this is expected behavior given that so many o
 
 
 
-### Random Forest Model:
+## Random Forest Model:
 
 Employed a random forest regression with 100 trees, aiming to capture non-linear relationships and better handle multicollinearity
 
@@ -64,7 +64,7 @@ Also of note is the variable importance graph derived from the random forest mod
 ![Variable_Importance_in_Random_Forest_Model-1.png](./images/Variable_Importance_in_Random_Forest_Model-1.png)
 
 
-### Conclusion
+## Conclusion
 
 Given the nature of the dependent variable (and of course, the performance of the models) and the potential for it to be widely influenced by outside factors, I think the more simple multivariate model gave the best results. While the Adjusted R square value was low, the p values and F-statistic did indicate a high degree of statistical significance. While the model can only predict the dependent variable to a limited degree, it performs strongly within this area. 
 
